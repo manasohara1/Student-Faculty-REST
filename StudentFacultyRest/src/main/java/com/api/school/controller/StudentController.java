@@ -27,7 +27,7 @@ public class StudentController implements MyValidator {
 	@Autowired
 	private StudentService studentService; // Service reference
 
-	// All Student Handler
+	// This method fetches list of all students
 	@GetMapping(value = "/students/fetchAll")
 	public ResponseEntity<List<Student>> getStudents() {
 		List<Student> students = studentService.getAllStudents();
@@ -39,7 +39,7 @@ public class StudentController implements MyValidator {
 		}
 	}
 
-	// Single Student Handler
+	// This method fetches student with particular id
 	@GetMapping(value = "/student/fetchByID/{sid}")
 	public ResponseEntity<Optional<Student>> getStudent(@PathVariable("sid") int sid) {
 		Optional<Student> fetchedStudent = studentService.getStudentById(sid);
@@ -52,7 +52,7 @@ public class StudentController implements MyValidator {
 		}
 	}
 
-	// Get List of students alphabetically
+	// Get List of students alphabetically name-wise
 	@GetMapping(value = "/students/fetchByName")
 	public ResponseEntity<List<Student>> getSortedStudents() {
 		try {
